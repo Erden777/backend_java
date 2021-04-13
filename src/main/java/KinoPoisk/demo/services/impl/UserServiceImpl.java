@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserServirce {
     public Users createUser(Users users) {
         Users checkUser = userRepository.findByEmail(users.getEmail());
         if (checkUser == null) {
-            Roles role = roleRepository.findByRole("ROLE_USER");
+            Roles role = roleRepository.findByRole("USER_ROLE");
             if (role != null) {
                 ArrayList<Roles> roles = new ArrayList<>();
                 roles.add(role);

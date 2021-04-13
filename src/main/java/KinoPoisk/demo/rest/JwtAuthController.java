@@ -28,9 +28,11 @@ public class JwtAuthController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @RequestMapping(value = "/auth")
+    @PostMapping(value = "/auth")
     public ResponseEntity<?> auth(@RequestBody JwtRequests request) throws Exception{
+        System.out.println("Auth");
         authenticate(request.getEmail(), request.getPassword());
+        System.out.println(request);
         final UserDetails userDetails =
                 userServirce.loadUserByUsername(request.getEmail());
         final String token = jwtTokenGenerator.generateToken(userDetails);
@@ -47,7 +49,7 @@ public class JwtAuthController {
                 final UserDetails userDetails =
                         userServirce.loadUserByUsername(u.getEmail());
                 final String token = jwtTokenGenerator.generateToken(userDetails);
-                return ResponseEntity.ok(token);
+                return ResponseEntity.ok(new JwtResponse(token));
             }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }

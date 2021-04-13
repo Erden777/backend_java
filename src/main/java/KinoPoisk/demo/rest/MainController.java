@@ -1,5 +1,4 @@
 package KinoPoisk.demo.rest;
-
 import KinoPoisk.demo.entities.Users;
 import KinoPoisk.demo.models.UserDTO;
 import KinoPoisk.demo.models.UserUpdatePassword;
@@ -20,10 +19,10 @@ public class MainController {
     @Autowired
     private UserServirce userServirce;
 
-
     @GetMapping(value = "/profile")
     public ResponseEntity<?> profilePage(){
         Users user = getUser();
+        System.out.println("Profile");
         return new ResponseEntity<>(new UserDTO(user.getId(), user.getEmail(), user.getFull_name(), user.getRoles()), HttpStatus.OK);
     }
 
