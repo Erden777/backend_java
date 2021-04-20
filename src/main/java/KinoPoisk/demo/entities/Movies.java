@@ -52,7 +52,7 @@ public class Movies {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Actors> actors;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Genre> genres;
 
     @Column(name = "year")

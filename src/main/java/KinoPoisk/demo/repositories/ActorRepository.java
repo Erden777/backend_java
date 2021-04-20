@@ -8,5 +8,5 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public interface ActorRepository extends JpaRepository<Actors, Long> {
+public interface ActorRepository extends JpaRepository<Actors,Long> {
 }

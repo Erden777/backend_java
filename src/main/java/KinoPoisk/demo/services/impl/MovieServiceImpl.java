@@ -1,4 +1,8 @@
 package KinoPoisk.demo.services.impl;
 
-public class MovieServiceImpl {
+import KinoPoisk.demo.services.MovieService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class MovieServiceImpl implements MovieService {
 }
