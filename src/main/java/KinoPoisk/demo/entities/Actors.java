@@ -2,7 +2,6 @@ package KinoPoisk.demo.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 @Entity
@@ -22,7 +21,7 @@ public class Actors {
     @Column(name = "age")
     private int age;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Country country;
 
     @Column(name = "full_name")

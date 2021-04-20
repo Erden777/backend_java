@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/api/actor")
 public class ActorController {
 
     @Autowired
@@ -19,17 +19,19 @@ public class ActorController {
 
     @GetMapping(value = "/allActors")
     public ResponseEntity<?> getAllActors(){
+        System.out.println("all actors");
         List<Actors> actors = actorService.getAllActors();
+        System.out.println(actors);
         return new ResponseEntity<>(actors, HttpStatus.OK);
     }
 
     @GetMapping(value = "/getActor/{id}")
     public ResponseEntity<?> getActor(@PathVariable(name = "id")Long id){
         Actors actors = actorService.getActor(id);
-        return new ResponseEntity<>(actors, HttpStatus.OK);
+        return ResponseEntity.ok(actors);
     }
 
-    @PostMapping(value = "/saveCard")
+    @PostMapping(value = "/saveActor")
     public ResponseEntity<?> addcard(@RequestBody Actors actors){
         actorService.addActors(actors);
         return ResponseEntity.ok(actors);

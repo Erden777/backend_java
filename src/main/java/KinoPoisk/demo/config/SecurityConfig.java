@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().
-                authorizeRequests().antMatchers( "/api/auth","/register", "/auth", "/api/allcards",
+                authorizeRequests().antMatchers( "/api/auth","/register", "/auth", "/api/actor/allActors",
                 "/api/search/card/{text}", "/api/getCard/{id}","/api//addTask/{id}","/api/saveCard", "/api/getTasks/{id}").permitAll().
                 anyRequest().authenticated().and().
                 exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement().
