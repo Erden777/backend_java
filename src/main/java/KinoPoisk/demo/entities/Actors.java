@@ -5,10 +5,10 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name="t_actors")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name="t_actors")
 public class Actors {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -26,7 +26,7 @@ public class ActorServiceImpl implements ActorService {
 
     @Override
     public Actors getActor(Long id) {
-        return actorRepository.getOne(id);
+        return actorRepository.findById(id).get();
     }
 
     @Override
