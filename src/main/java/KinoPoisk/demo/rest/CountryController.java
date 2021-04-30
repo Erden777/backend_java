@@ -1,8 +1,6 @@
 package KinoPoisk.demo.rest;
-
-
+import KinoPoisk.demo.entities.Actors;
 import KinoPoisk.demo.entities.Country;
-import KinoPoisk.demo.repositories.CountryRepository;
 import KinoPoisk.demo.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +11,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/country")
 public class CountryController {
 
     @Autowired
@@ -24,17 +22,23 @@ public class CountryController {
         List<Country> countries = countryService.getAllCountries();
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
-//
-//    @GetMapping(value = "/getTasks/{id}")
-//    public ResponseEntity<?> getTasks(@PathVariable(name = "id")Long id){
-//        List<CardTasks> cardTasks = cardTaskService.getTasksbycardId(id);
-//        return new ResponseEntity<>(cardTasks, HttpStatus.OK);
-//    }
-//
-//    @GetMapping(value = "/getCard/{id}")
-//    public ResponseEntity<?> getCard(@PathVariable(name = "id")Long id){
-//        Cards cards = cardService.getOneCard(id);
-//        return ResponseEntity.ok(cards);
-//    }
+    @GetMapping(value = "/getCountry/{id}")
+    public ResponseEntity<?> getActor(@PathVariable(name = "id")Long id){
+        Country country = countryService.getCountry(id);
+        return ResponseEntity.ok(country);
+    }
+
+    @PostMapping(value = "/saveActor")
+    public ResponseEntity<?> addCountry(@RequestBody Country country){
+        countryService.addCountry(country);
+        return ResponseEntity.ok(country);
+    }
+
+    @DeleteMapping(value = "/delete")
+    public ResponseEntity<?> delete(@RequestBody Country country){
+        System.out.println(country);
+        countryService.deleteCountry(country);
+        return ResponseEntity.ok(country.getId());
+    }
 
 }

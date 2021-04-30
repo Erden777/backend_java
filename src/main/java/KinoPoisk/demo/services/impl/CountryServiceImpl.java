@@ -1,6 +1,5 @@
 package KinoPoisk.demo.services.impl;
 
-import KinoPoisk.demo.entities.Actors;
 import KinoPoisk.demo.entities.Country;
 import KinoPoisk.demo.repositories.CountryRepository;
 import KinoPoisk.demo.services.CountryService;
@@ -18,5 +17,20 @@ public class CountryServiceImpl implements CountryService {
     @Override
     public List<Country> getAllCountries() {
         return countryRepository.findAll();
+    }
+
+    @Override
+    public Country addCountry(Country country) {
+        return countryRepository.save(country);
+    }
+
+    @Override
+    public Country getCountry(Long id) {
+        return countryRepository.findById(id).get();
+    }
+
+    @Override
+    public void deleteCountry(Country country) {
+        countryRepository.delete(country);
     }
 }
