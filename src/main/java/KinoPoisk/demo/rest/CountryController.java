@@ -16,14 +16,14 @@ import java.util.List;
 @RequestMapping(value = "/api")
 public class CountryController {
 
-//    @Autowired
-//    private CountryService countryService;
-//
-//    @GetMapping(value = "/allcountries")
-//    public ResponseEntity<?> getAllCountries(){
-//        List<Country> countries = countryService
-//        return new ResponseEntity<>(cards, HttpStatus.OK);
-//    }
+    @Autowired
+    private CountryService countryService;
+
+    @GetMapping(value = "/allcountries")
+    public ResponseEntity<?> getAllCountries(){
+        List<Country> countries = countryService.getAllCountries();
+        return new ResponseEntity<>(countries, HttpStatus.OK);
+    }
 //
 //    @GetMapping(value = "/getTasks/{id}")
 //    public ResponseEntity<?> getTasks(@PathVariable(name = "id")Long id){

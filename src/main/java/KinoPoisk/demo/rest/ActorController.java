@@ -33,7 +33,6 @@ public class ActorController {
 
     @GetMapping(value = "/getActor/{id}")
     public ResponseEntity<?> getActor(@PathVariable(name = "id")Long id){
-        System.out.println("getActor "+ id);
         List<Country> countries = countryService.getAllCountries();
         Actors actors = actorService.getActor(id);
 
@@ -44,6 +43,8 @@ public class ActorController {
 
     @PostMapping(value = "/saveActor")
     public ResponseEntity<?> addcard(@RequestBody Actors actors){
+        System.out.println("save actor");
+        System.out.println(actors);
         actorService.addActors(actors);
         return ResponseEntity.ok(actors);
     }

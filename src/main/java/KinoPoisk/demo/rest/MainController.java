@@ -16,6 +16,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(value = "/api")
 public class MainController {
+
     @Autowired
     private UserServirce userServirce;
 
@@ -54,5 +55,4 @@ public class MainController {
         }
         return null;
     }
-
 }
