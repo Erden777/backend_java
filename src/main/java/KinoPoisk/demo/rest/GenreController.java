@@ -33,6 +33,7 @@ public class GenreController {
     @PostMapping(value = "/saveGenre")
     public ResponseEntity<?> addGenre(@RequestBody Genre genre){
         System.out.println(genre);
+        System.out.println("Edited");
         genreService.addGenre(genre);
         return ResponseEntity.ok(genre);
     }

@@ -46,10 +46,10 @@ public class Movies {
     @Column(name = "url_video")
     private String url_video;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Country country;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Actors> actors;
 
     @ManyToMany(fetch = FetchType.LAZY)
