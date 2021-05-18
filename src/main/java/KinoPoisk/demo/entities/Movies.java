@@ -49,14 +49,19 @@ public class Movies {
     @ManyToOne(fetch = FetchType.EAGER)
     private Country country;
 
+    @Column(name = "rating")
+    private double rating;
+
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Actors> actors;
 
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Genre> genres;
 
+    @OneToMany
+    private List<Rating_Movie> rating_movies;
+
     @Column(name = "year")
     private Date year;
-
 
 }

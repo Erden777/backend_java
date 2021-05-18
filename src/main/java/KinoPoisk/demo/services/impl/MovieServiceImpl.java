@@ -1,4 +1,5 @@
 package KinoPoisk.demo.services.impl;
+import KinoPoisk.demo.entities.Genre;
 import KinoPoisk.demo.entities.Movies;
 import KinoPoisk.demo.repositories.MovieRepository;
 import KinoPoisk.demo.services.MovieService;
@@ -15,6 +16,21 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public List<Movies> getAllMovies() {
         return movieRepository.findAll();
+    }
+
+    @Override
+    public List<Movies> getPopularMovies() {
+        return movieRepository.findAllByOrderByRatingDesc();
+    }
+
+    @Override
+    public List<Movies> getNewMovies() {
+        return movieRepository.findAllByOrderByYearDesc();
+    }
+
+    @Override
+    public List<Movies> getMoviesByGenre(Genre genre) {
+        return movieRepository.findAllByGenres(genre);
     }
 
     @Override
