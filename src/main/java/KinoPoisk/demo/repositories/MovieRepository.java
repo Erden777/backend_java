@@ -14,4 +14,5 @@ public interface MovieRepository extends JpaRepository<Movies, Long> {
     List<Movies> findAllByOrderByYearDesc();
     List<Movies> findAllByOrderByRatingDesc();
     List<Movies> findAllByGenres(Genre genre);
+    List<Movies> findAllByNameContainsOrderByYearDesc(String name);
 }

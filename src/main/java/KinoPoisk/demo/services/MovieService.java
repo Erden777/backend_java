@@ -13,5 +13,6 @@ public interface MovieService {
     List<Movies> getMoviesByGenre(Genre genre);
     Movies addMovie(Movies movie);
     Movies getMovie(Long id);
+    List<Movies> search(String name);
     void deleteMovie(Movies movie);
 }

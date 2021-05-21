@@ -1,8 +1,6 @@
 package KinoPoisk.demo.models;
 
-import KinoPoisk.demo.entities.Actors;
-import KinoPoisk.demo.entities.Country;
-import KinoPoisk.demo.entities.Genre;
+import KinoPoisk.demo.entities.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,16 +14,21 @@ import java.util.List;
 @NoArgsConstructor
 public class MovieModel implements Serializable {
     private static final long serialVersionUID = 123456789L;
-
+    private Long id;
     private String name;
     private String description;
     private String income;
     private String url_video;
-    private String picture_url;
-    private String large_pictureUrl;
-    private String small_picture_url;
+    private String picture_3;
+    private String large_picture;
+    private String small_picture;
+    private String producer;
+    private String director;
     private Country country;
+    private double rating;
+    private List<Rating_Movie> rating_movies;
     private List<Actors> actors;
     private List<Genre> genres;
     private Date year;
+    private List<Movies> similar_products;
 }

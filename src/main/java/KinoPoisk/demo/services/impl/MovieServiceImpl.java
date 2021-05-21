@@ -44,6 +44,11 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
+    public List<Movies> search(String name) {
+        return movieRepository.findAllByNameContainsOrderByYearDesc(name);
+    }
+
+    @Override
     public void deleteMovie(Movies movie) {
         movieRepository.delete(movie);
     }
